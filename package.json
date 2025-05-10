@@ -1,0 +1,13 @@
+{
+  "name": "netlify-translate-api",
+  "version": "1.0.0",
+  "description": "Serverless translation API on Netlify Functions",
+  "main": "netlify/functions/translate.js",
+  "dependencies": {
+    "@vitalets/google-translate-api": "^7.0.0"
+  },
+  "scripts": {
+    "start": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  }
+}
