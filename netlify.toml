@@ -1,0 +1,3 @@
+[build]
+  publish = "public"            # or "dist" or wherever your HTML lives
+  functions = "netlify/functions"
