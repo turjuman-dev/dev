@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Translate Demo</title>
+</head>
+<body>
+  <h1>Translate Demo</h1>
+  <textarea id="input" rows="4" cols="50" placeholder="Type something…"></textarea>
+  <br/>
+  <button id="go">Translate to Spanish</button>
+  <h2>Result:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById('go').addEventListener('click', async () => {
+      const q = document.getElementById('input').value;
+      const resp = await fetch('/.netlify/functions/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q, source: 'en', target: 'es' })
+      });
+      const data = await resp.json();
+      document.getElementById('output').textContent = data.translatedText || data.error;
+    });
+  </script>
+</body>
+</html>
